@@ -1,0 +1,30 @@
+<div *ngIf="messageshow" class="custom-alert custom-alert-success" role="alert">
+  {{message}}
+  <button type="button" class="custom-btn-close" aria-label="Close" (click)="closeAlert()"></button>
+</div>
+
+<br><br>
+
+<form class="custom-registration-form" (ngSubmit)="register()" #registrationForm="ngForm">
+  <div class="custom-form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="custom-input" id="firstName" placeholder="Enter your first name" [(ngModel)]="user.firstName" name="firstName" required>
+  </div>
+  <div class="custom-form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="custom-input" id="email" placeholder="Enter your email" [(ngModel)]="user.email" name="email" required>
+  </div>
+
+  <div class="custom-form-group">
+    <label for="password">Password</label>
+    <input type="password" class="custom-input" id="password" placeholder="Enter your password" [(ngModel)]="user.password" name="password" required>
+  </div>
+
+  <div class="custom-form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" class="custom-input" id="confirmPassword" placeholder="Confirm your password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+  </div>
+
+  <button *ngIf="isLoading" type="submit" class="custom-btn custom-btn-disabled">Registering...</button>
+  <button *ngIf="!isLoading" type="submit" class="custom-btn custom-btn-primary">Register</button>
+</form>

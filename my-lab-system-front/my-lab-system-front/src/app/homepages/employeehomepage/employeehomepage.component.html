@@ -1,0 +1,49 @@
+<div  class="appointments-table-container">
+    <p-table [value]="pendingAppointments" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Procedure Request</th>
+                <th>Additional Information</th>
+                <th>Approval Status</th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-appointment>
+            <tr>
+                <td>{{ appointment.userFirstName }}</td>
+                <td>{{ appointment.userLastName }}</td>
+                <td>{{ appointment.userDateOfBirth }}</td>
+                <td>{{ appointment.userGender }}</td>
+                <td>{{ appointment.userContactNumber }}</td>
+                <td>{{ appointment.userEmail }}</td>
+                <td>{{ appointment.userAddress }}</td>
+                <td>{{ appointment.userProcedureRequest }}</td>
+                <td>{{ appointment.userAdditionalInformation }}</td>
+                <td>
+                    <button class="status-label" (click)="updateAprovalAppointment(appointment.id, 1)"  [ngClass]="{
+                        'pending': appointment.approve === 0,
+                        'approved': appointment.approve === 1,
+                        'shadow': appointment.approve === 0 || appointment.approve === 1
+                      }" style="text-align: center;">
+                        <span>{{ appointment.approve === 0 ? 'Approve' : (appointment.approve === 1 ? 'Reject' : (appointment.approve === -1 ? 'Rejected' : '')) }}</span>
+                    </button>
+                      
+                      
+                  </td>
+                  <td>
+                    <button class="delete-button" (click)="deleteAppointment(appointment.id)" [disabled]="deleteloading">
+                      <span *ngIf="!deleteloading">Delete</span>
+                      <span *ngIf="deleteloading">Deleting...</span>
+                    </button>
+                  </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

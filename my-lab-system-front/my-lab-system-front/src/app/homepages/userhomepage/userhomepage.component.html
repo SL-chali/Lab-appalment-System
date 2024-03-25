@@ -1,0 +1,40 @@
+
+<h1>Lab Appointment Form</h1>
+
+<form #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm)">
+  <label for="userFirstName">First Name:</label>
+  <input type="text" id="userFirstName" name="userFirstName" ngModel required>
+
+  <label for="userEmail">Email:</label>
+  <input type="email" id="userEmail" name="userEmail" ngModel required>
+
+  <label for="userDateOfBirth">Date of Birth:</label>
+  <input type="date" id="userDateOfBirth" name="userDateOfBirth" ngModel required>
+
+  <label for="userGender">Gender:</label>
+  <select id="userGender" name="userGender" ngModel required>
+    <option value="">Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <label for="userAddress">Address:</label>
+  <textarea id="userAddress" name="userAddress" ngModel required></textarea>
+
+  <label for="userContactNumber">Contact Number:</label>
+  <input type="tel" id="userContactNumber" name="userContactNumber"  ngModel required>
+  
+  <label>Tests:</label>
+  <select name="userProcedureRequest" id="tests"  ngModel>
+    <option value="Blood Testing">Blood Testing</option>
+    <option value="Urine Analysis">Urine Analysis</option>
+    <option value="X-ray">X-ray</option>
+  </select>
+  
+  <label for="userAdditionalInformation">Additional Information:</label>
+  <textarea id="userAdditionalInformation" name="userAdditionalInformation" ngModel></textarea>
+
+  <button *ngIf="loading" type="submit" disabled>Submiting..</button>
+  <button *ngIf="!loading" type="submit">Submit</button>
+</form>

@@ -1,0 +1,59 @@
+/* styles.css */
+
+/* Table */
+.appointments-table-container {
+    width: 100%;
+    overflow-x: auto; /* Add horizontal scroll if needed */
+  }
+  
+  /* Table Headers */
+  th {
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Table Cells */
+  td {
+    padding: 10px;
+  }
+  
+  /* Status Button */
+  .status-label {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .status-label.pending {
+    background-color: yellow; /* Yellow for pending */
+  }
+  
+  .status-label.approved {
+    background-color: green; /* Green for approved */
+    color: white;
+  }
+  
+  .status-label.shadow {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow effect for pending and approved */
+  }
+  
+  /* Delete Button */
+  .delete-button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #dc3545; /* Red color for delete button */
+    color: white;
+    border: none;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  
+  .delete-button[disabled] {
+    background-color: #ccc; /* Grayed out color when disabled */
+    cursor: not-allowed;
+  }
+  
